@@ -1,0 +1,130 @@
+<!-- index.html – startsida för Koll på Käket -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koll på Käket: Startsida</title>
+    <!-- Länkar till huvudsaklig CSS-stilmall -->
+    <link rel="stylesheet" href="css/stil.css">
+    <!-- Beskrivning för SEO och tillgänglighet -->
+    <meta name="description" content="Startsida för Koll på Käket.">
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <!-- Huvudnavigation -->
+        <nav class="main-nav" role="navigation" aria-label="Huvudmeny">
+        <ul class="logo">
+            <li>
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo_plate.svg" alt="Logotyp för Koll på Käket">
+            </a>
+            </li>
+            </ul>
+            <ul class="page-links">
+            <li class="mobile-only">
+            <button id="menu-toggle" aria-label="Öppna mobilmeny" tabindex="0">&#9776;</button>
+            </li>
+            <li class="nav-links"><a href="html/recept.html">Recept</a></li>
+            <li class="nav-links has-dropdown">
+                    <a href="html/fakta.html">Näringsfakta ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="html/makro.html">Makronutrienter</a></li>
+                        <li><a href="html/mikro.html">Mikronutrienter</a></li>
+                    </ul>
+                </li>
+            <li class="nav-links"><a href="html/berakna.html">Näringsberäknaren</a></li>
+            <li class="nav-links"><a href="html/om.html">Om Koll på Käket</a></li>
+            </ul>
+            <ul class="logo">
+            <li>
+            <a href="#" class="logo" aria-label="Sökfunktion (ej aktiv ännu)">
+                <img src="assets/img/logo_search.svg" alt="Sökfunktion">
+            </a>
+            </li>
+            
+        </ul>
+        </nav>
+
+        <!-- Hero-banner -->
+        <section class="hero-banner" aria-label="Startsida - Välkomstbanner">
+        <h1 tabindex="0">Koll på Käket</h1>
+        <h2 tabindex="0">För dig som vill veta mer</h2>
+        <div class="head-buttons" role="navigation" aria-label="Genvägar till sidor">
+            <a href="html/recept.html" class="button" aria-label="Gå till sidan för recept">Utforska recept</a>
+            <a href="html/fakta.html" class="button" aria-label="Läs mer om näring">Lär dig mer om näring</a>
+            <a href="html/berakna.html" class="button" aria-label="Beräkna näringsinnehåll i din mat">Beräkna näringsinnehåll</a>
+            <a href="html/om.html" class="button" aria-label="Om sidan">Mer om sidan</a>
+        </div>
+        </section>
+
+        <nav class="breadcrumb" aria-label="Brödsmulenavigering">
+        <p><a href="index.html">Hem</a> ▸ ...</p>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <!-- Featuresektion -->
+        <section class="features" aria-label="Innehållsblock för utforskning">
+        <article class="feature">
+            <img src="/assets/img/wooden-spoon-640.webp" 
+                        srcset="/assets/img/wooden-spoon-320.webp 320w,
+                                /assets/img/wooden-spoon-640.webp 640w,
+                                /assets/img/wooden-spoon-1280.webp 1280w"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                        alt="Träslev och örter"
+                        loading="lazy">
+            <h3 tabindex="0">Utforska recept</h3>
+            <p tabindex="0">Hitta inspirerande och näringsrika recept för alla tillfällen.</p>
+            <a href="html/recept.html" class="button">Till recepten</a>
+        </article>
+        <article class="feature">
+            <img src="/assets/img/nutrition-bowl-640.webp" 
+                        srcset="/assets/img/nutrition-bowl-320.webp 320w,
+                                /assets/img/nutrition-bowl-640.webp 640w,
+                                /assets/img/nutrition-bowl-1280.webp 1280w"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                        alt="Person med skål med grönsaker"
+                        loading="lazy">
+            <h3 tabindex="0">Lär dig mer om näring</h3>
+            <p tabindex="0">Förstå makronutrienter och mikronutrienter och deras betydelse för hälsan.</p>
+            <a href="html/fakta.html" class="button">Läs mer</a>
+        </article>
+        </section>
+
+        <!-- Promo: Kalkylator -->
+        <section class="promo calculator-promo" aria-label="Reklam för näringsberäknare" tabindex="0">
+        <h3>Beräkna ditt näringsinnehåll</h3>
+        <p>Använd näringsberäknaren för att analysera näringsvärdet i dina måltider. Snabbt och enkelt!</p>
+        <a href="html/berakna.html" class="button">Jag vill testa!</a>
+        </section>
+
+        <!-- Promo: Quiz -->
+        <section class="promo quiz-promo" aria-label="Reklam för quiz" tabindex="0">
+        <h3>Testa dina kunskaper!</h3>
+        <p>Gör mitt quiz om makro- och mikronutrienter och se hur mycket du kan.</p>
+        <a href="html/quiz.html" class="button">Gå till quizzet</a>
+        </section>
+    </main>
+
+    <!-- Sidfot med kontaktinformation och uppdateringsdatum -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-content">
+            <img src="assets/img/uu-logo_w.png" alt="Logotyp för Uppsala Universitet">
+            <div>
+                <p>&copy; 2025 Nelly Mäkinen</p>
+                <p>UPPSALA UNIVERSITET</p>
+            </div>
+        </div>
+        <div class="footer-update">
+            <a href="html/om.html">Kontakta mig</a>
+            <p>Sidan uppdaterades: ...</p>
+        </div>
+    </footer>
+
+    <!-- JS för hamburgarmenyn (mobil) och sidfotens uppdateringsdatum -->
+    <script src="js/extra/mobil-nav.js" type="module"></script>
+    <script src="js/extra/senast-upd.js" type="module"></script>
+</body>
+
