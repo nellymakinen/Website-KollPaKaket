@@ -1,0 +1,694 @@
+/* ========== TYPOGRAFI ==========
+   Import av lokala typsnitt: Montserrat & Open Sans, samt deras kursiva varianter.
+   Används genom variabler längre ner.
+*/
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat-VariableFont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../assets/fonts/OpenSans-VariableFont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat Italic';
+    src: url('../assets/fonts/Montserrat-Italic-VariableFont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Open Sans Italic';
+    src: url('../assets/fonts/OpenSans-Italic-VariableFont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* ========== DESIGNVARIABLER ==========
+   Definierar färger, typsnitt, skuggor, radie m.m.
+   Gör det lättare att hålla designen enhetlig och ändringsbar.
+*/
+:root {
+  --font-main: 'Montserrat', sans-serif;
+  --font-heading: 'Open Sans', sans-serif;
+
+  /*--color-primary: #0E4E32;
+  --color-bg: #EDEFE9;
+  --color-dark: #333;
+  --color-white: #fff;
+  --color-muted: #fcfef9;
+*/
+  --color-primary-bg: #edefe9;
+  --color-primary-gr: #0d4c33;
+
+  --color-secondary-text: #333333;
+  --color-secondary-nav: #fcfef9;
+  --color-secondary-dark: #00250f;
+  --color-secondary-bg: #e4e7de;
+
+  --border-radius: 0.6rem;
+  --shadow-sm: 0 0 0.6rem rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 0 1.6rem rgba(0, 0, 0, 0.3);
+
+  --transition-default: 0.3s ease;
+  --padding-default: 2rem;
+}
+/* ========== CSS-LAGER ==========
+   Delar upp stilmallen i lager:
+   - reset: nollställer standardstilar
+   - base: grundstruktur för t.ex. body, rubriker
+   - components: knappar, kort, banner, navigering
+   - utilities: hjälpsklasser
+   - page-specifika lager: recept, kalkylator, instruktioner
+*/
+@layer reset, base, components, utilities, page-recept, page-kalkylator, page-instruktioner;
+
+@layer reset {
+    /* Återställer marginaler, padding, boxmodell och stilar för alla element */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    body, h1, h2, h3, h4, h5, h6,
+    p, figure, blockquote, dl, dd,
+    ul, ol, menu, pre, form, fieldset, legend,
+    input, textarea, select, button {
+        margin: 0;
+        padding: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        border: none;
+    }
+    body {
+        min-height: 100vh;
+        line-height: 1.5;
+        font-family: system-ui, sans-serif;
+        font-size: 1rem;
+        background-color: #fff;
+        color: #000;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+    ul, ol {
+        list-style: none;
+        padding-left: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        background-color: transparent;
+    }
+    img, picture, video, canvas, svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    input, button, textarea, select {
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: none;
+        outline: none;
+    }
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+    /* Förbättrad tillgänglighet: tar bort animationer om användaren önskar det */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+        }
+    }
+}
+/* Förbättrad tillgänglighet: tar bort animationer om användaren önskar det */
+@media (prefers-reduced-motion: reduce) {
+  .feature:hover,
+  .button:hover,
+  .calculator-promo:hover,
+  .meal-card:hover {
+    transition: none !important;
+  }
+}
+
+@layer base {
+    /* Grundläggande utseende på body, rubriker, länkar, bilder */
+    body {
+        font-family: var(--font-main);
+        color: var(--color-secondary-text);
+        background-color: var(--color-primary-bg);
+        padding: 2.5rem 5rem;
+        max-width: 1800px;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-primary-bg);
+        box-shadow: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.3);
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+        letter-spacing: 0.1rem;
+        font-weight: lighter;
+    }
+    h1 { 
+        font-size: 5rem; 
+        color: var(--color-secondary-nav); 
+        margin-bottom: 0.5rem; 
+    }
+    h2 { 
+        font-size: 3rem; 
+        color: var(--color-secondary-nav); 
+        margin-bottom: 0.3rem;
+    }
+    h3 { 
+        font-size: 1.8rem; 
+    }
+    h4 { 
+        font-size: 1.6rem; 
+    }
+    h5 { 
+        font-size: 1.4rem; 
+    }
+    h6 {
+        font-size: 1.2rem;
+    }
+    p, a, ul {
+        font-size: 1.2rem;
+    }
+    a {
+        cursor: pointer;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    li {
+        margin: 0.25rem 0;
+    }
+    img {
+        border-radius: var(--border-radius);
+    }
+}
+
+@layer components {
+    /* ========== KNAPPAR ==========
+     Används på hela sajten för interaktion.
+     Stödjer hover-effekt med skugga.
+    */
+    .button, button {
+        background: var(--color-primary-gr);
+        color: var(--color-secondary-nav);
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        border-radius: 0.3rem;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.2s ease;
+        border: none;
+        display: inline-block;
+    }
+    .button:hover {
+        box-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.95);
+    }
+    /* ========== BANNER & RUBRIKSEKTION ==========
+     Hero-bannern används på varje sida.
+     Bakgrundsbild + titeltext + huvudknappar.
+    */
+    .hero-banner {
+        background-color: var(--color-primary-gr);
+        background-image: url('../assets/img/banner2.png');
+        background-size: cover;
+        padding: 1rem 2rem;
+    }
+    .head-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+    /* ========== NAVIGATION ==========
+     Desktopnavigation + dropdown för näringsfakta.
+     Mobilanpassning hanteras i media queries.
+    */
+    nav {
+        background: var(--color-secondary-nav);
+        padding: 0 2rem;
+        box-shadow: var(--shadow-lg);
+        border-bottom: 0.07rem solid #FFFFFF;
+    }
+    .main-nav {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .main-nav li {
+        justify-self:center;
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        column-gap: 3rem;
+    }
+    nav a {
+        font-weight: bold;
+    }
+    .main-nav ul:first-child img { 
+        height: 4rem; 
+    }
+    .main-nav ul:last-child img { 
+        height: 2.5rem; 
+    }
+    .has-dropdown ul {
+        display: none;
+        position: absolute;
+        background: white;
+        border: 0.07rem solid #ccc;
+    }
+    .has-dropdown:hover ul {
+        display: block;
+        /*margin-top: 2rem;*/
+    }
+    .has-dropdown ul a {
+        padding: 0.5rem 1rem;
+        font-weight: normal;
+    }
+    /* Göm hamburgerknappen i desktop */
+    .mobile-only {
+        display: none;
+    }
+    /* ========== ARTIKELKORT / FEATURE ==========
+     Kortlayout för startsida och faktasidor.
+     Flexbox + skuggor + padding.
+    */
+    .features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem 2rem;
+        padding: 1rem 2rem;
+    }
+    .feature {
+        flex: 1 1 40%;
+        background: var(--color-secondary-nav);
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-sm);
+        transition: transform var(--transition-default), box-shadow var(--transition-default);
+    }
+    .feature:hover {
+        box-shadow: var(--shadow-lg);
+    }
+    /* ========== FORMULÄR ==========
+     Används på receptsök, beräknaren och kontaktsidan.
+     Flexlayout + tydlig typografi.
+    */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        background-color: var(--color-secondary-nav);
+        border: 0.07rem solid #FFFFFF80;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        max-width: 50rem;
+        min-width: 25rem;
+        margin: 1rem auto;
+    }
+    form input,
+    form textarea,
+    form select {
+        flex: 1 1 auto;
+        padding: 0.6rem;
+        margin: 0.5rem 0;
+        border-radius: 0.25rem;
+        border: 0.07rem solid #ccc;
+        background-color: var(--color-secondary-nav);
+        font-size: 1rem;
+        color: var(--color-secondary-text);
+    }
+    form li {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+    #calc-form {
+        background-color: #062A1CF2;
+        backdrop-filter: blur(0.25rem);
+    }
+    .contact h4 {
+        margin: 0 -1rem;
+    }
+    /* ========== SEKTION MED MÖRK BAKGRUND ==========
+     Används på berakna.html – med blur-effekt för tydlighet.
+    */
+    .dark {
+        padding: 1rem 2rem;
+        background-image: url('../assets/img/banner-calculator.png');
+        background-color: var(--color-secondary-dark);
+        background-position: top;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5 {
+        border-bottom: 0.07rem solid #FFFFFF80;
+        color: white;
+        margin: 1rem 0;
+    }
+    .dark p, .dark ul, .dark a {
+        color:white;
+    }
+
+    .dark a {
+        text-decoration: underline;
+    }
+    /* ========== FOOTER ==========
+     Tydlig sidfot med UU-logotyp, kontaktlänk och datum.
+    */
+    .site-footer {
+        background: #0D4C33;
+        color: var(--color-secondary-nav);
+        padding: 2rem;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+        box-shadow: var(--shadow-lg);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .site-footer img {
+        height: 3rem;
+    }
+    .footer-content,
+    .footer-update {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+    .footer-update {
+        flex-direction: column;
+        align-items: end;
+    }
+    /* ========== LJUSA INFORMATIONSSEKTIONER ==========
+     Används på info-sidor (om.html, fakta.html etc.).
+     Flexlayout och ljus bakgrund.
+    */
+    .info {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 2rem;
+    }
+    .info h3, .info h4, #meal-title {
+        background: var(--color-secondary-bg);
+        margin: 1rem -2rem;
+        border-top: 0.07rem solid white;
+        border-bottom: 0.07rem solid white;
+    }
+    /* ========== PROMO-BLOCK ==========
+     Används för quiz och kalkylator.
+     Starka bakgrundsbilder + kontrasttext.
+    */
+    .promo {
+        color: var(--color-secondary-nav);
+        text-shadow: 0 0 2rem black,
+                    0 0 0.2rem black;
+        padding: 1rem;
+        margin: 1rem 2rem;
+        border-radius: 2rem;
+        box-shadow: var(--shadow-sm);
+        text-align: center;
+        background-color: var(--color-primary-gr);
+        background-size: cover;
+        background-position: center;
+    }
+    .promo:hover {
+        box-shadow: var(--shadow-lg);
+        transition: box-shadow 0.3s ease;
+    }
+    .calculator-promo {
+        background-image: url('../assets/img/banner-calculator.png');
+        
+    }
+    .quiz-promo {
+        background-image: url('../assets/img/banner-quiz-feature.png');
+    }
+    /* ========== TABELLER ==========
+     Makro- och mikronutrienttabeller. Bra kontrast och visuell tydlighet.
+    */
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        font-size: 0.95rem;
+        background: var(--color-secondary-nav);
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow-lg);
+        /*box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.8);*/
+        opacity: 0.9;
+    }
+    .styled-table thead {
+        background: var(--color-primary-gr);
+        color: var(--color-secondary-nav);
+    }
+    #resultat tr:hover {
+        background-color: #f9fcf7;
+    }
+    .styled-table th,
+    .styled-table td {
+        padding: 0.75rem 1rem;
+        border-bottom: 0.07rem solid #eee;
+        text-align: left;
+    }
+    .makro tbody tr:last-child {
+        background-color: #edf3ee;
+        font-weight: bold;
+    }
+    .mikro td:nth-child(2),
+    .mikro th:nth-child(2),
+    .mikro td:last-child,
+    .mikro th:last-child {
+        text-align: right;
+    }
+    /* ========== RECEPTKORT ==========
+     Grid-layout med responsiva kort och hover-effekter.
+     Används på recept.html.
+    */
+    .meal-grid {
+        display: flex;
+        gap: 1rem;
+        padding: 0 2rem;
+        margin: 0 -2rem;
+        background: var(--color-secondary-nav);
+    }
+    .meal-card {
+        background: var(--color-secondary-nav);
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        max-width: 24%;
+    }
+    .meal-card:hover {
+        transform: translateY(-0.07rem);
+        box-shadow: var(--shadow-lg);
+    }
+    .meal-content {
+        padding: 1rem;
+        cursor: pointer;
+    }
+    .info h3, .info h4, .info #meal-title,
+    .dark h3, .dark h4, .dark h5, .dark a,
+    #calc-form {
+        text-align: center;
+    }
+}
+
+@layer utilities {
+    /*.text-center {
+        text-align: center;
+    }*/
+    .hidden {
+        display: none;
+    }
+    .active {
+        /*background: color-secondary-dark;*/
+        opacity: 1;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--padding-default);
+    }
+}
+
+@layer page-recept {
+  .search-bar {
+    flex-direction: row;
+    border: 0.125rem solid var(--color-primary-gr);
+    padding: 0 0.5rem;
+  }
+  .search-bar img {
+    height: 2.2rem;
+  }
+  .filter-buttons {
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .filter-buttons button {
+    border: 0.125rem solid var(--color-primary-gr);
+    background-color: var(--color-secondary-nav);
+    color: var(--color-primary-gr);
+    font-weight: bold;
+  }
+  .filter-buttons button.active,
+  .filter-buttons button:hover {
+    background-color: var(--color-primary-gr);
+    color: white;
+  }
+}
+
+@layer page-instruktioner {
+  .meal-layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 1rem;
+    gap: 2rem;
+  }
+  .meal-left {
+    flex: 1 1 49%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .meal-right {
+    flex: 1 1 49%;
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-lg);
+    /*box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.05);*/
+  }
+  .meal-instructions {
+    margin: 1rem;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-lg);
+    /*box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.05);*/
+  }
+}
+@layer page-kalkylator {
+    #instruktioner {
+        background-color: #062A1C80;
+        padding: 1rem;
+        border: 1px solid #FFFFFF80;
+        border-radius: 0.5rem;
+        backdrop-filter: blur(0.25rem);
+        text-align: justify;
+        margin: 0 12rem;
+    }
+    #instruktioner ul {
+        list-style: decimal inside;
+    }
+    #instruktioner li {
+        background-color: var(--color-secondary-dark);
+        border-radius: var(--border-radius);
+        margin: 0.5rem 0;
+        padding: 0.25rem;
+    }
+}
+/* ========== MEDIA QUERIES ==========
+   Responsivitet för surfplatta (≤1024px) och mobil (≤640px).
+   Justerar padding, fontstorlek, flexlayout och navigation.
+*/
+@media (max-width: 1024px) {
+    :root {
+        font-size: 0.8rem;
+    }
+    body {
+        padding: 1rem 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        font-size: 0.6rem;
+    }
+    body {
+        padding: 0;
+    }
+    footer {
+        border-radius: 0;
+    }
+    .main-nav {
+        border-radius: 0;
+    }
+    .features {
+        flex-direction: column;
+        align-items: center;
+        margin: 0rem 1rem;
+    }
+    .feature {
+        padding: 2rem;
+    }
+    .meal-layout {
+      flex-direction: column;
+    }
+    .meal-left,
+    .meal-right {
+      flex: 1 1 100%;
+    }
+    .meal-hero-image {
+      max-width: 100%;
+    }
+    /* Mobilmeny – visa hamburgare, dölja länkar tills togglade */
+    .mobile-only {
+    display: block;
+    }
+
+    /* Dölj enskilda länkar i mobil-läge */
+    .nav-links {
+    display: none;
+    /* ta bort absolut positionering så de kan staplas naturligt */
+    position: static;  
+    background: var(--color-secondary-nav);
+    padding: 0rem 0.2rem;
+    }
+
+    /* När nav har klassen .show-links: visa alla .nav-links och gör hela UL till kolumn */
+    .main-nav.show-links ul {
+    flex-direction: column;      
+    align-items: center;     
+    }
+    .main-nav.show-links .nav-links {
+    display: flex;               
+    flex-direction: row;         
+    }
+    .main-nav.show-links .has-dropdown ul {
+        margin-top: 1.8rem;
+    }
+    #menu-toggle {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-primary-gr);
+    }
+}

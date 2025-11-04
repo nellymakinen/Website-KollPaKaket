@@ -1,0 +1,192 @@
+<!-- makro.html -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koll på Käket: Makronutrienter</title>
+    <link rel="stylesheet" href="../css/stil.css">
+    <meta name="description" content="Faktasida om makronutrienter för Koll på Käket.">
+    <link rel="preload" href="/assets/img/logo_plate.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="/assets/img/logo_search.svg" as="image" type="image/svg+xml">
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <!-- Huvudnavigation -->
+        <nav class="main-nav" role="navigation" aria-label="Huvudmeny">
+        <ul class="logo">
+            <li>
+            <a href="../index.html" class="logo">
+                <img src="../assets/img/logo_plate.svg" alt="Logotyp för Koll på Käket">
+            </a>
+            </li>
+            </ul>
+            <ul class="page-links">
+            <li class="mobile-only">
+            <button id="menu-toggle" aria-label="Öppna mobilmeny" tabindex="0">&#9776;</button>
+            </li>
+            <li class="nav-links"><a href="recept.html">Recept</a></li>
+            <li class="nav-links has-dropdown">
+                <a href="fakta.html">Näringsfakta ▼</a>
+                <ul class="dropdown">
+                    <li><a href="makro.html">Makronutrienter</a></li>
+                    <li><a href="mikro.html">Mikronutrienter</a></li>
+                </ul>
+            </li>
+            <li class="nav-links"><a href="berakna.html">Näringsberäknaren</a></li>
+            <li class="nav-links"><a href="om.html">Om Koll på Käket</a></li>
+            </ul>
+            <ul class="logo">
+            <li>
+            <a href="#" class="logo" aria-label="Sökfunktion (ej aktiv ännu)">
+                <img src="../assets/img/logo_search.svg" alt="Sökfunktion">
+            </a>
+            </li>
+        </ul>
+        </nav>
+
+        <!-- Hero-banner -->
+        <section class="hero-banner" aria-label="Välkomstbanner">
+        <h1 tabindex="0">Koll på Käket</h1>
+        <h2 tabindex="0">För dig som vill veta mer</h2>
+        <div class="head-buttons" role="navigation" aria-label="Genvägar till sidor">
+            <a href="recept.html" class="button" aria-label="Gå till sidan för recept">Utforska recept</a>
+            <a href="fakta.html" class="button active" aria-label="Du är här: Läs mer om näring">Lär dig mer om näring</a>
+            <a href="berakna.html" class="button" aria-label="Beräkna näringsinnehåll i din mat">Beräkna näringsinnehåll</a>
+            <a href="om.html" class="button" aria-label="Om sidan">Mer om sidan</a>
+        </div>
+        </section>
+
+        <nav class="breadcrumb" aria-label="Brödsmulenavigering">
+        <p><a href="../index.html">Hem</a> ▸ <a href="fakta.html">Faktasidan</a> ▸ Makronutrienter </p>
+        </nav>
+    </header>
+    
+    <main class="hero">
+        <section class="features">
+            <article class="feature">
+                <img 
+                    src="/assets/img/kolhydrater.png" 
+                    alt="Livsmedel rika på kolhydrater"
+                    loading="lazy">
+                <div class="feature-content">
+                    <h3>Frukostbröd eller gofika?</h3>
+                    <p>Kroppens främsta energikälla! Läs mer om kolhydrater och 
+                        deras betydelse för hälsan.</p>
+                    <a href="#kolhydrat" class="button">Utforska</a>
+                </div>
+            </article>
+            <article class="feature">
+                <img 
+                    src="/assets/img/fett.png" 
+                    alt="Exempel på fettrika livsmedel"
+                    loading="lazy">
+                <div class="feature-content">
+                    <h3>Fett som fett, eller?</h3>
+                    <p>Fett är viktigt för cellernas funktion, hormonproduktion 
+                    och energilagring. Läs mer och utöka dina kunskaper!</p>
+                    <a href="#fett" class="button">Utforska</a>
+                </div>
+            </article>
+            <article class="feature">
+                <img 
+                    src="/assets/img/proteiner.png" 
+                    alt="Proteinkällor som fisk, kyckling och baljväxter"
+                    loading="lazy">
+                <div class="feature-content">
+                    <h3>Fågel, fisk, eller mittemellan?</h3>
+                    <p>Proteiner bygger upp och reparerar kroppens vävnader.
+                        För den nyfikna finns mer att läsa här!
+                    </p>
+                    <a href="#protein" class="button">Utforska</a>
+                </div>
+            </article>
+            <article class="feature">
+                <img 
+                    src="/assets/img/banner-quiz-feature.png" 
+                    alt="Uppslagen bok om vitaminer och mineraler, anteckningsblock,
+                    penna, glasögon och en grön smoothie"
+                    loading="lazy">
+                <div class="feature-content">
+                    <h3>Nyfiken på hur mycket du kan?</h3>
+                    <p>Genomför mitt quiz och se hur kunnig du är om
+                        makro- och mikronutrienter!
+                    </p>
+                    <a href="#" class="button">Till quizzet</a>
+                </div>
+            </article>
+        </section>
+        <section class="promo calculator-promo">
+            <h3>Beräkna ditt recepts näringsinnehåll</h3>
+            <p>Använd näringsberäknaren för att analysera näringsvärdet i dina måltider. 
+                Snabbt och enkelt!</p>
+            <a href="berakna.html" class="button">Ta mig dit!</a>
+        </section>
+        <section class="info">
+            <h4 id="kolhydrat">Kolhydrater</h4>
+                <p>Kolhydrater är kroppens huvudsakliga energikälla. De omvandlas till glukos, 
+                    som används av hjärna och muskler. Kolhydrater delas in i snabba (t.ex. socker,
+                     vitt bröd), även kallade enkla sockerarter, och långsamma (t.ex. havre, baljväxter),
+                     även kallade sammansatta kolhydrater, beroende på hur snabbt de påverkar blodsockret.</p>
+                <ul>
+                    <li><strong>Socker:</strong> Enkla kolhydrater som ger snabb energi men låg mättnad.
+                         Finns naturligt i frukt och tillsatt i många livsmedel. Överintag kan påverka 
+                         blodsockret negativt.</li>
+                    <li><strong>Fibrer:</strong> Ej nedbrytbara kolhydrater som främjar tarmhälsa, 
+                        sänker kolesterol och ger mättnad. Finns i fullkorn, grönsaker och baljväxter.</li>
+                </ul>
+                <p><em>Källa: Livsmedelsverket, Harvard T.H. Chan School of Public Health</em></p>
+            <h4 id="fett">Fett</h4>
+                <p>Fett behövs för att kroppen ska kunna ta upp fettlösliga vitaminer (A, D, E och K), 
+                    samt för cellmembran, hormonproduktion och energilagring. Det finns olika typer av
+                     fett med olika hälsoeffekter.</p>
+                <ul>
+                    <li><strong>Mättat fett:</strong> Finns i animaliska livsmedel som smör, ost och
+                         grädde. Överdriven konsumtion kan bidra till höga blodfetter.</li>
+                    <li><strong>Omättat fett:</strong> Finns i fisk, avokado, nötter och vegetabiliska
+                         oljor. Bidrar till bättre hjärthälsa.</li>
+                    <li><strong>Transfett:</strong> Bildas vid industriell härdning. Har stark koppling
+                         till hjärt-kärlsjukdom och bör undvikas.</li>
+                </ul>
+                <p><em>Källa: Livsmedelsverket, WHO</em></p>
+            <h4 id="protein">Protein</h4>
+                <p>Protein är kroppens byggmaterial och behövs för att bygga och reparera celler, 
+                    muskler, hormoner och enzymer. Det består av aminosyror, varav flera är 
+                    essentiella och måste tillföras via kosten.</p>
+                <ul>
+                    <li><strong>Källor:</strong> Kött, fisk, ägg, mejeriprodukter, baljväxter, 
+                        tofu, sojaprodukter.</li>
+                    <li><strong>Behov:</strong> Cirka 0.8 g/kg kroppsvikt per dag. Vid styrketräning 
+                        eller sjukdom kan behovet öka till 1.2-2.0 g/kg.</li>
+                </ul>
+                <p><em>Källa: Livsmedelsverket, NIH</em></p>
+            <h4>Källor</h4>
+            <ul>
+                <li>🔗 https://www.livsmedelsverket.se/livsmedel-och-innehall/naringsamne/kolhydrater</li>
+                <li>🔗 https://www.hsph.harvard.edu/nutritionsource/carbohydrates/</li>
+                <li>🔗 https://www.livsmedelsverket.se/livsmedel-och-innehall/naringsamne/fett</li>
+                <li>🔗 https://www.who.int/news-room/fact-sheets/detail/healthy-diet</li>
+                <li>🔗 https://www.livsmedelsverket.se/livsmedel-och-innehall/naringsamne/protein</li>
+                <li>🔗 https://ods.od.nih.gov/factsheets/Protein-HealthProfessional/</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <section class="footer-content">
+            <img src="../assets/img/uu-logo_w.png" alt="Logotyp för Uppsala Universitet">
+            <section>
+                <p>&copy; 2025 Nelly Mäkinen</p>
+                <p>UPPSALA UNIVERSITET</p>
+            </section>
+        </section>
+        <section class="footer-update">
+            <a href="om.html">Kontakta mig</a>
+            <p>Sidan uppdaterades: ...</p>
+        </section>
+    </footer>
+    <script src="../js/extra/mobil-nav.js" type="module"></script>
+    <script src="../js/extra/senast-upd.js" type="module"></script>
+</body>
+</html>

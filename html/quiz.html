@@ -1,0 +1,90 @@
+<!-- quiz.html -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koll på Käket: Faktaquiz</title>
+    <link rel="stylesheet" href="../css/stil.css">
+    <script type="module" src="../js/extra/quiz.js" ></script>
+    <link rel="preload" href="/assets/img/logo_plate.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="/assets/img/logo_search.svg" as="image" type="image/svg+xml">
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <!-- Huvudnavigation -->
+        <nav class="main-nav" role="navigation" aria-label="Huvudmeny">
+        <ul class="logo">
+            <li>
+            <a href="../index.html" class="logo">
+                <img src="../assets/img/logo_plate.svg" alt="Logotyp för Koll på Käket">
+            </a>
+            </li>
+            </ul>
+            <ul class="page-links">
+            <li class="mobile-only">
+            <button id="menu-toggle" aria-label="Öppna mobilmeny" tabindex="0">&#9776;</button>
+            </li>
+            <li class="nav-links"><a href="recept.html">Recept</a></li>
+            <li class="nav-links has-dropdown">
+                <a href="fakta.html">Näringsfakta ▼</a>
+                <ul class="dropdown">
+                    <li><a href="makro.html">Makronutrienter</a></li>
+                    <li><a href="mikro.html">Mikronutrienter</a></li>
+                </ul>
+            </li>
+            <li class="nav-links"><a href="berakna.html">Näringsberäknaren</a></li>
+            <li class="nav-links"><a href="om.html">Om Koll på Käket</a></li>
+            </ul>
+            <ul class="logo">
+            <li>
+            <a href="#" class="logo" aria-label="Sökfunktion (ej aktiv ännu)">
+                <img src="../assets/img/logo_search.svg" alt="Sökfunktion">
+            </a>
+            </li>
+            </ul>
+        </nav>
+
+        <!-- Hero-banner -->
+        <section class="hero-banner" aria-label="Välkomstbanner">
+        <h1 tabindex="0">Koll på Käket</h1>
+        <h2 tabindex="0">För dig som vill veta mer</h2>
+        <div class="head-buttons" role="navigation" aria-label="Genvägar till sidor">
+            <a href="recept.html" class="button" aria-label="Gå till sidan för recept">Utforska recept</a>
+            <a href="fakta.html" class="button active" aria-label="Du är här: Läs mer om näring">Lär dig mer om näring</a>
+            <a href="berakna.html" class="button" aria-label="Beräkna näringsinnehåll i din mat">Beräkna näringsinnehåll</a>
+            <a href="om.html" class="button" aria-label="Om sidan">Mer om sidan</a>
+        </div>
+        </section>
+
+        <nav class="breadcrumb" aria-label="Brödsmulenavigering">
+        <p><a href="../index.html">Hem</a> ▸ <a href="fakta.html">Faktasidan</a> ▸ QUIZ </p>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <section class="info">
+            <h3>Quiz: Makro & Mikro</h3>
+            <p>Testa dina kunskaper om näringsämnen!</p>
+            <section id="quiz"></section>
+            <section id="result"></section>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <section class="footer-content">
+            <img src="../assets/img/uu-logo_w.png" alt="Logotyp för Uppsala Universitet">
+            <section>
+                <p>&copy; 2025 Nelly Mäkinen</p>
+                <p>UPPSALA UNIVERSITET</p>
+            </section>
+        </section>
+        <section class="footer-update">
+            <a href="om.html">Kontakta mig</a>
+            <p>Sidan uppdaterades: ...</p>
+        </section>
+    </footer>
+    <script src="../js/extra/mobil-nav.js" type="module"></script>
+    <script src="../js/extra/senast-upd.js" type="module"></script>
+</body>
+</html>

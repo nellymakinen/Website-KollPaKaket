@@ -1,0 +1,74 @@
+/* === Reset everything to a clean baseline === */
+/* === Global Reset & Baseline Setup === */
+
+/* Box sizing for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* Remove default margin and padding */
+body, h1, h2, h3, h4, h5, h6,
+p, figure, blockquote, dl, dd,
+ul, ol, menu, pre, form, fieldset, legend,
+input, textarea, select, button {
+    margin: 0;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+/* Set base styles for body */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: system-ui, sans-serif;
+  background-color: #fff;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/* Remove list styles */
+ul, ol {
+    list-style: none;
+    padding-left: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+/* Normalize links */
+a {
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+}
+/* Media elements responsive */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+/* Inherit font on form elements */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+/* Remove default appearance */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+/* Remove animations for users with motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+

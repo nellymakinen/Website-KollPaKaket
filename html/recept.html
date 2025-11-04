@@ -1,0 +1,120 @@
+<!-- recept.html (med JS-widget) -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koll på Käket: Receptsidan</title>
+    <link rel="stylesheet" href="../css/stil.css">
+    <meta name="description" content="Receptsidan för Koll på Käket.">
+    <script src="../js/recept.js" type="module"></script>
+    <script src="../js/sok.js" type="module"></script>
+    <link rel="preconnect" href="https://www.themealdb.com">
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <!-- Huvudnavigation -->
+        <nav class="main-nav" role="navigation" aria-label="Huvudmeny">
+        <ul class="logo">
+            <li>
+            <a href="../index.html" class="logo">
+                <img src="../assets/img/logo_plate.svg" alt="Logotyp för Koll på Käket">
+            </a>
+            </li>
+            </ul>
+            <ul class="page-links">
+            <li class="mobile-only">
+            <button id="menu-toggle" aria-label="Öppna mobilmeny" tabindex="0">&#9776;</button>
+            </li>
+            <li class="nav-links"><a href="recept.html">Recept</a></li>
+            <li class="nav-links has-dropdown">
+                    <a href="fakta.html">Näringsfakta ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="makro.html">Makronutrienter</a></li>
+                        <li><a href="mikro.html">Mikronutrienter</a></li>
+                    </ul>
+                </li>
+            <li class="nav-links"><a href="berakna.html">Näringsberäknaren</a></li>
+            <li class="nav-links"><a href="om.html">Om Koll på Käket</a></li>
+            </ul>
+            <ul class="logo">
+            <li>
+            <a href="#" class="logo" aria-label="Sökfunktion (ej aktiv ännu)">
+                <img src="../assets/img/logo_search.svg" alt="Sökfunktion">
+            </a>
+            </li>
+            </ul>
+        </nav>
+
+        <!-- Hero-banner -->
+        <section class="hero-banner" aria-label="Välkomstbanner">
+        <h1 tabindex="0">Koll på Käket</h1>
+        <h2 tabindex="0">För dig som vill veta mer</h2>
+        <div class="head-buttons" role="navigation" aria-label="Genvägar till sidor">
+            <a href="recept.html" class="button active" aria-label="Du är här: Gå till sidan för recept">Utforska recept</a>
+            <a href="fakta.html" class="button" aria-label="Läs mer om näring">Lär dig mer om näring</a>
+            <a href="berakna.html" class="button" aria-label="Beräkna näringsinnehåll i din mat">Beräkna näringsinnehåll</a>
+            <a href="om.html" class="button" aria-label="Om sidan">Mer om sidan</a>
+        </div>
+        </section>
+
+        <nav class="breadcrumb" aria-label="Brödsmulenavigering">
+        <p><a href="../index.html">Hem</a> ▸ Receptsidan</p>
+        </nav>
+    </header>
+    
+    <main class="hero">
+        <section class="info">
+                <h3>Sök efter recept här:</h3>
+                <form id="recipe-search" class="search-bar" role="search">
+                    <label for="search-input" aria-label="Sök efter t.ex. lasagne, tofu"></label>
+                    <input type="text" id="search-input" placeholder="Sök efter t.ex. lasagne, tofu...">
+                    <button type="submit" aria-label="Sök">
+                    <img src="../assets/img/logo_search_white.svg" alt="Sök">
+                    </button>
+                </form>
+                <nav class="filter-buttons">
+                    <button data-filter="all" class="active">Alla</button>
+                    <button data-filter="vegetarian">Vegetarisk</button>
+                    <button data-filter="vegan">Vegansk</button>
+                    <button data-filter="meat">Kött</button>
+                    <button data-filter="seafood">Skaldjur</button>
+                </nav>
+            <h4 id="search-title" class="hidden">Sökresultat</h4>
+                <section id="search-container" class="meal-grid search-res"></section>
+            <h4>Mina recepttips!</h4>
+                <section id="tips-container" class="meal-grid"></section>
+            <h4>Veganska & vegetariska rätter</h4>
+                <section id="veg-container" class="meal-grid"></section>
+            <h4>Köttbaserade rätter</h4>
+                <section id="meat-container" class="meal-grid"></section>
+            <h4>Skaldjursrätter</h4>
+                <section id="seafood-container" class="meal-grid"></section>
+        </section>
+
+        <section class="promo calculator-promo">
+            <h3>Beräkna ditt recepts näringsinnehåll</h3>
+            <p>Använd näringsberäknaren för att analysera näringsvärdet i dina måltider. Snabbt och enkelt!</p>
+            <a href="berakna.html" class="button">Ta mig dit!</a>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <section class="footer-content">
+            <img src="../assets/img/uu-logo_w.png" alt="Logotyp för Uppsala Universitet">
+            <section>
+                <p>&copy; 2025 Nelly Mäkinen</p>
+                <p>UPPSALA UNIVERSITET</p>
+            </section>
+        </section>
+        <section class="footer-update">
+            <a href="om.html">Kontakta mig</a>
+            <p>Sidan uppdaterades: ...</p>
+        </section>
+    </footer>
+    <script src="../js/extra/mobil-nav.js" type="module"></script>
+    <script src="../js/extra/senast-upd.js" type="module"></script>
+</body>
+</html>
